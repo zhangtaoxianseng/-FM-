@@ -1,0 +1,50 @@
+define(["backbone"],function(backbone){
+	var Router = Backbone.Router.extend({
+		routes:{
+			"user":"userfunc",
+			"anchor":"anchorfunc",
+			"recharge":"rechargefunc",
+			"consume":"consumefunc",
+			"share":"sharefunc",
+			"activity":"activityfunc",
+			"feedback":"feedbackfunc"
+		},
+		userfunc:function(){
+			require(["./js/user.js"],function(user){
+				console.log("111")
+				user.user();
+			})
+		},
+		anchorfunc:function(){
+			require(["./js/anchor.js"],function(anchor){
+				anchor.anchor()
+			})
+		},
+		rechargefunc:function(){
+			require(["./js/recharge.js"],function(recharge){
+				recharge.recharge()
+			})
+		},
+		consumefunc:function(){
+			require(["./js/consume.js"],function(consume){
+				consume.consume()
+			})
+		},
+		sharefunc:function(){
+			require(["./js/share.js"],function(share){
+				share.share()
+			})
+		},
+		activityfunc:function(){
+			require(["./js/activity.js"],function(activity){
+				activity.activity()
+			})
+		},
+		feedbackfunc:function(){
+			require(["./js/feedback.js"],function(feedback){
+				feedback.feedback()
+			})
+		}
+	})
+	var router = new Router();
+})
